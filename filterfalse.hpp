@@ -13,17 +13,16 @@ namespace itertools
             {
             private:
                 const filterfalse& ff;
-                decltype(temp.begin()) iter; // for pass over the container. type = (iterator)
+                decltype(temp.begin()) iter; // for pass over the temp. type = (iterator)
 
             public:
-                iterator(const filterfalse& f, decltype(temp.begin()) i) : ff(f), iter(i) { }
+                iterator(const filterfalse& f, decltype(temp.begin()) i) : ff(f), iter(i) {
+                    if (iter == ff.temp.begin() && ff.func(*iter))
+                        ++(*this);
+                }
 
                 auto operator*() const
                 {
-                    // while(ff.func(*iter))
-                    // {
-                    //     iter++;
-                    // }
                     return *iter;
                 }
 

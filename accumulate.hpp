@@ -28,7 +28,7 @@ namespace itertools
             {
             private:
                 const accumulate& ac;
-                decltype(temp.begin()) iter; // for pass over the container. type = (iterator)
+                decltype(temp.begin()) iter; // for pass over the temp. type = (iterator)
                 typename std::decay<decltype(*(temp.begin()))>::type valIter;
                 // decltype(*(temp.begin())) valIter; // *iter. type = (*iterator)
 
