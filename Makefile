@@ -9,6 +9,10 @@ OBJECTS=
 
 run: test
 	./$^
+	
+demo: Demo.o $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $^ -o demo
+	./demo
 
 test: TestRunner.o Test_snir.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o test
